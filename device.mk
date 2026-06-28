@@ -28,3 +28,7 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 
 TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libresetprop.so 
+# Fix libbinder ABI mismatch
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/prebuilt/libbinder.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libbinder.so \
+    $(DEVICE_PATH)/prebuilt/libbinder_ndk.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libbinder_ndk.so
